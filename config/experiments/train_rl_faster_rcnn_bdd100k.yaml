@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+    - override /model: faster_rcnn_pretrained
+
+cmd: "train"
+model:
+    rl_model: True
+    rl_model_load: False
+dataset:
+    with_predictions: True

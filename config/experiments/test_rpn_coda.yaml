@@ -1,0 +1,24 @@
+# @package _global_
+defaults:
+    - override /dataset: coda
+    - override /model: faster_rcnn
+    - override /metrics: metrics
+
+cmd: "test"
+test_on_train: False 
+test_on_val: True 
+test_on_test: False
+
+dataloader:
+    batch_size: 4
+
+metrics:
+    mAP: False
+    considering_known_classes: False
+
+
+model:
+    save_each_epoch: 100
+    classes_names_pred: ['person', 'cyclist', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle', 'traffic light', 'traffic sign']
+    only_rpn: true
+    only_anchors: false

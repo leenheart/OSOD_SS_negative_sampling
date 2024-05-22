@@ -1,0 +1,34 @@
+multiple_rpn_heads: true
+
+# Filtering parameters
+pre_nms_top_n_test: 1000
+post_nms_top_n_test: 1000
+
+bbox_loss_function: null #"adjust_smooth_l1_loss"
+bbox_reg_beta: 0 #0.11111111 #1/9
+
+bce: true
+bce_loss_function: null 
+bce_reg_beta: 0
+bce_proposal: false
+
+iou: true 
+iou_proposal: false
+iou_loss_function: "adjust_smooth_l1_loss"
+iou_reg_beta: 0.1111111 #1/9
+
+centerness: true
+centerness_proposal: false
+centerness_loss_function: "adjust_smooth_l1_loss"
+centerness_reg_beta: 0.111111 #1/9
+
+oro: false
+
+
+# Sampling strategie :
+use_negative_sample: false
+use_pure_negative_sample: false
+objectness_score_used: "bce"
+positive_threshold_classif: 0.7
+positive_threshold_reg: 0.3
+nb_boxes_sampled_per_img: 256

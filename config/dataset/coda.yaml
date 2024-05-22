@@ -1,0 +1,13 @@
+defaults:    
+    - default_dataset
+
+name: "coda"
+path_val: "${pc_config.dataset_path}coda/val"
+path_test: "${pc_config.dataset_path}coda/test"
+shuffle: False
+image_resize_width: 1280 #676 # 1355 #1280
+image_resize_height: 720 #360 # 720 #768
+max_size: 4883 # Max is 4883
+#classes_names: ['person', 'cyclist', 'car', 'truck', 'tricycle', 'bus', 'bicycle', 'moped', 'motorcycle', 'stroller', 'cart', 'construction_vehicle', 'dog', 'barrier', 'bollard', 'sentry_box', 'traffic_cone', 'traffic_island', 'traffic light', 'traffic sign', 'debris', 'suitcace', 'dustbin', 'concrete_block', 'machinery', 'garbage', 'plastic_bag', 'stone', 'misc']
+classes_names: ['person', 'cyclist', 'car', 'truck', 'tram', 'tricycle', 'bus', 'bicycle', 'moped', 'motorcycle', 'stroller', 'wheelchair', 'cart', 'trailer', 'construction_vehicle', 'recreational_vehicle', 'dog', 'cat', 'barrier', 'bollard', 'warning_sign', 'sentry_box', 'traffic_box', 'traffic_cone', 'traffic_island', 'traffic light', 'traffic sign', 'debris', 'suitcace', 'dustbin', 'concrete_block', 'machinery', 'chair', 'phone_booth', 'basket', 'cardboard', 'carton', 'garbage', 'garbage_bag', 'plastic_bag', 'stone', 'tire', 'misc']
+            #['pedestrian', 'cyclist', 'car', 'truck', 'tricycle', 'bus', 'bicycle', 'moped', 'motorcycle', 'stroller', 'cart', 'construction_vehicle', 'dog', 'barrier', 'bollard', 'sentry_box', 'traffic_cone', 'traffic_island', 'traffic_light', 'traffic_sign', 'debris', 'suitcace', 'dustbin', 'concrete_block', 'machinery', 'garbage', 'plastic_bag', 'stone', 'misc']

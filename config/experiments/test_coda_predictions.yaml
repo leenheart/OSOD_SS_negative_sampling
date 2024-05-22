@@ -1,0 +1,56 @@
+# @package _global_
+defaults:
+    - override /dataset: predictions
+
+cmd: "calcul_on_predictions"
+is_log: False
+test_on_train: False
+test_on_val: False 
+test_on_test: True 
+
+#models_name: [rpn_only_2-train_rpn_bdd100k_iou_centerness_epoch24_2000_imgs_low_lr_84_coverage_val, rpn_only_1-train_rpn_bdd100k_basic_epoch5_10000_imgs_88_coverage_val, random, anchors, anchors_custom]
+#models_name: [random, anchors, anchors_custom]
+#print_model_names: ["Random", "anchors", "anchors_custom"]
+#models_name: [anchors_custom]
+#print_model_names: ["anchors_custom"]
+#models_name: [rpn_only_temp_my_rpn_multiple_heads_bdd100k_basic_epoch2_100_imgs]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_basic_epoch_50_10000_imgs]
+#print_model_names: ["predictions"]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_5heads_iou_centerness_bcep_epoch_50_100_imgs]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_5heads_iou_centerness_bcep_epoch_7_70000_imgs_89_coverage]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_7heads_negative_sampling_6_epoch_2000_img_84_coverage]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_7heads_centerness_negative_sampling_4_epoch_10000_img_50_coverage]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_7heads_centerness_negative_sampling_0_5_pos_treshold_5_epoch_10000_img_60_coverage]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_semantics_7heads_centerness_pure_negative_sampling_37_epoch_10000_img_train_40_coverage, rpn_only_my_rpn_multiple_heads_bdd100k_semantics_7heads_centerness_pure_negative_sampling_13_epoch_10000_img_train_37_coverage]
+#print_model_names: ["multiple_heads_epoch_37", "multiple_heads_epoch_13"]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_semantics_3_heads_pos_sampling_epoch_44_10000_imgs, rpn_only_my_rpn_multiple_heads_bdd100k_semantics_3_heads_neg_sampling_epoch_99_10000_imgs, rpn_only_my_rpn_multiple_heads_bdd100k_semantics_3_heads_pure_neg_sampling_epoch_72_10000_imgs]
+#print_model_names: ["pos", "neg", "pure_neg"]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_semantics_3_heads_pure_neg_epoch_22_10000_imgs]
+models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_semantics_3_heads_pos_epoch_29_10000_imgs]
+print_model_names: ["pos"]
+#models_name: [random, anchors, anchors_custom]
+#print_model_names: ["Random", "anchors", "anchors_custom"]
+
+dataset:
+    #classes_as_known: ['cyclist', 'traffic light', 'bicycle', 'truck', 'person', 'bus', 'car', 'traffic sign', 'motorcycle']
+    classes_as_known: [0, 1, 2, 3, 4, 6, 7, 8, 9]
+    dataset_name: "coda"
+    max_size: 5000
+
+dataloader:
+    batch_size: 32
+
+metrics:
+    considering_known_classes: False
+    metrics_on_raw_predictions: True
+    mAP: False
+    flags: True # FN/TP/TN
+    precision: False
+    recall: True
+    f1_score: False
+    UDR: False
+    UDP: False
+    WI: False # Wilderness Impact
+    A_OSE: False # Open-Set Error
+
+

@@ -1,0 +1,9 @@
+defaults:    
+    - default_model
+    
+
+name: "fcos" #_resnet50_fpn"
+load: True
+to_load: "3_day_fcos_bdd100k/_9" #"2_day_fcos_bdd100k_semantic_centerness_epoch_40" #
+
+center_sampling: False

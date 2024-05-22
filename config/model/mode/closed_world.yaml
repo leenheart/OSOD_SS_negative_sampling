@@ -1,0 +1,7 @@
+keep_background: false
+
+ai_iou: false
+
+ai_oro: false
+filter_oro: false
+perfect_oro: false 

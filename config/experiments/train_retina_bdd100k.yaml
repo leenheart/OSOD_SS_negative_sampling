@@ -1,0 +1,8 @@
+
+# @package _global_
+defaults:
+    - override /model: retina_net
+
+
+cmd: "train"
+

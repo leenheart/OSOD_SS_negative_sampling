@@ -1,0 +1,35 @@
+# @package _global_
+defaults:
+    - override /dataset: carla
+    - override /model: faster_rcnn_pretrained
+
+
+cmd: "test"
+test_on_train: True
+test_on_val: False 
+test_on_test: True
+
+dataloader:
+    batch_size: 1
+
+metrics:
+    mAP: True
+    flags: True # FN/TP/TN
+    precision: True
+    recall: True
+    f1_score: False
+    UDR: True
+    UDP: False
+    WI: False # Wilderness Impact
+    A_OSE: False # Open-Set Error
+
+model:
+    rl_model: True
+    rl_model_load: True
+    rl_model_load_name: "9val_end" # "8700"
+    classes_names: ['pedestrians', 'cars', 'trucks', 'bicycles', 'traffic_signs', 'traffic_light', 'riders', 'buses', 'roads', "sidewalks", "building", "walls", "poles", "sky", "vegetation", "static", "dynamic", "other", "roadLines", "ground", "rail_track", "water", 'fences', 'bridge', 'guard_rail', 'terrain', 'cyclists']
+    classes_names_pred: ["background", "pedestrians", "bicycles", "cars", "motorcycles", "airplane", "buses", "train", "trucks", "boat", "traffic_light", "fire hydrant", "traffic_signs", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "hat", "backpack", "umbrella", "shoe", "eyeglasses", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle", "plate", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair", "couch", "potted plant", "bed", "mirror", "dining table", "window", "desk", "toilet", "door", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone", "microwave", "oven", "toaster", "sink", "refrigerator", "blender", "book", "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush", "hair brush"]
+
+dataset:
+    with_predictions: False
+    json_label_name: "base_label"

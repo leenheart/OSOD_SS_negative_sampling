@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+    - override /dataset: bdd100k
+
+
+cmd: "see"
+dataloader:
+    batch_size: 8

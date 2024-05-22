@@ -1,0 +1,5 @@
+defaults:    
+    - default_model
+    
+name: "yolov5"
+collate_fn: "tensor"

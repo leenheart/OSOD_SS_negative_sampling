@@ -1,0 +1,8 @@
+defaults:    
+    - default_dataset
+
+name: "predictions"
+test_path:  "${model.save_predictions_path}/${dataset.dataset_name}"
+img_path: "${pc_config.dataset_path}${dataset.dataset_name}/val"
+split: "val"
+preload_predictions: False

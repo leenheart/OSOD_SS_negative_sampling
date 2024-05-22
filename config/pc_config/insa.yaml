@@ -1,0 +1,8 @@
+
+dataset_path: "/home/cbun00/data/"
+model_save_path: "/home/cbun00/model_saves/"
+max_epochs: 100
+dataloader:
+    batch_size: 8
+    num_workers: 2
+

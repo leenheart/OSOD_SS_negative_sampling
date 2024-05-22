@@ -1,0 +1,5 @@
+defaults:    
+    - default_model
+    
+name: "retina_net"
+pretrained: false

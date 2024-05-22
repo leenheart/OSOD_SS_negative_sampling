@@ -1,0 +1,6 @@
+# @package _global_
+cmd: "compare"
+
+predictions_path: "../model_saves/prediction_saves/"
+models_to_compare: ["fcos", "retina_net", "faster_rcnn"]
+image_name: "b1c66a42-6f7d68ca"

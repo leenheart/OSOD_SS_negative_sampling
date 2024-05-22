@@ -1,0 +1,19 @@
+# @package _global_
+defaults:
+    - override /dataset: bdd100k_semantic
+    - override /model: faster_rcnn
+    - override /metrics: metrics
+
+cmd: "train"
+test_on_train: True
+test_on_val: True
+test_on_test: False
+
+metrics:
+    mAP: False
+
+model:
+    save_each_epoch: 1
+    classes_names_pred: ['person', 'cyclist', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle', 'traffic light', 'traffic sign']
+    only_rpn: true
+    pretrained: True

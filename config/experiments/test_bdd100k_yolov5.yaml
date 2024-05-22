@@ -1,0 +1,28 @@
+# @package _global_
+defaults:
+    - override /dataset: bdd100k
+    - override /model: yolov5
+
+dataset:
+    image_resize_height: 320
+
+cmd: "test"
+test_on_train: False
+test_on_val: True
+test_on_test: False
+
+dataloader:
+    batch_size: 8
+
+metrics:
+    mAP: True
+    flags: True # FN/TP/TN
+    precision: True
+    recall: True
+    f1_score: False
+    UDR: True
+    UDP: False
+    WI: False # Wilderness Impact
+    A_OSE: False # Open-Set Error
+
+

@@ -1,0 +1,32 @@
+
+# @package _global_
+defaults:
+    - override /dataset: coda
+    - override /model: faster_rcnn_pretrained
+
+
+cmd: "test"
+test_on_train: False
+test_on_val: True
+test_on_test: False
+
+dataloader:
+    batch_size: 1
+
+metrics:
+    mAP: True
+    flags: True # FN/TP/TN
+    precision: True
+    recall: True
+    f1_score: False
+    UDR: True
+    UDP: False
+    WI: False # Wilderness Impact
+    A_OSE: False # Open-Set Error
+
+model:
+    rl_model: True
+    rl_model_load: True
+    rl_model_load_name: "9val_end" # "8700"
+dataset:
+    with_predictions: False

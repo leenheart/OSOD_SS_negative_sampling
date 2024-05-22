@@ -1,0 +1,46 @@
+# @package _global_
+defaults:
+    - override /dataset: predictions
+
+cmd: "calcul_on_predictions"
+test_on_train: False
+test_on_val: False 
+test_on_test: True 
+
+#models_name: [rpn_only_2-train_rpn_bdd100k_iou_centerness_epoch24_2000_imgs_low_lr_84_coverage_val, rpn_only_1-train_rpn_bdd100k_basic_epoch5_10000_imgs_88_coverage_val, random, anchors, anchors_custom]
+#models_name: [random, anchors, anchors_custom]
+#print_model_names: ["Random", "anchors", "anchors_custom"]
+#models_name: [anchors]
+#print_model_names: ["anchors"]
+#models_name: [anchors_custom]
+#print_model_names: ["anchors_custom"]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_basic_epoch_50_10000_imgs]
+#print_model_names: ["predictions"]
+models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_5heads_iou_centerness_bcep_epoch_50_100_imgs]
+print_model_names: ["multiple_heads"]
+#models_name: [rpn_only_my_rpn_multiple_heads_bdd100k_semantics_3_heads_pure_neg_epoch_22_10000_imgs]
+#print_model_names: ["pure_neg"]
+
+
+dataset:
+    classes_as_known: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] #['motorcycle', 'truck', 'person', 'bus', 'train', 'bicycle', 'cyclist', 'car', 'traffic light', 'traffic sign']
+    dataset_name: "bdd100k"
+    max_size: 10000
+
+dataloader:
+    batch_size: 32
+
+metrics:
+    considering_known_classes: False
+    metrics_on_raw_predictions: True
+    mAP: False
+    flags: True # FN/TP/TN
+    precision: False
+    recall: True
+    f1_score: False
+    UDR: False
+    UDP: False
+    WI: False # Wilderness Impact
+    A_OSE: False # Open-Set Error
+
+

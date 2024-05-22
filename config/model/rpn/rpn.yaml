@@ -1,0 +1,15 @@
+multiple_rpn_heads: false
+oro: false
+
+# Filtering parameters
+pre_nms_top_n_test: 1000
+post_nms_top_n_test: 1000
+
+# Sampling strategie :
+use_negative_sample: false
+use_pure_negative_sample: false
+objectness_score_used: "bce"
+positive_threshold_classif: 0.7
+positive_threshold_reg: 0.3
+nb_boxes_sampled_per_img: 256
+

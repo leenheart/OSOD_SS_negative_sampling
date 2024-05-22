@@ -1,0 +1,9 @@
+
+# @package _global_
+defaults:
+    - override /dataset: coda
+
+
+cmd: "see"
+dataloader:
+    batch_size: 8

@@ -1,0 +1,6 @@
+# @package _global_
+cmd: "compare"
+
+predictions_path: "../model_saves/prediction_saves/"
+models_to_compare: ["yolov8", "fcos", "retina_net", "faster_rcnn"]
+image_name: "139"

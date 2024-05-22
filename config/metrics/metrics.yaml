@@ -1,0 +1,25 @@
+considering_known_classes: True
+metrics_on_raw_predictions: True
+metrics_on_proposals_predictions: True
+calibration_nb_bins: 20
+mAP: True
+flags: True # FN/TP/TN
+precision: True
+recall: True
+coverage: True
+f1_score: False
+UDR: False 
+UDP: False 
+WI: False # Wilderness Impact
+A_OSE: False # Open-Set Error
+
+scores:
+    color_contrast_ring_factor: 0.1
+    edge_density_inner_ring_factor: 0.2
+    threshold_score_minimum: 0.2
+    threshold_score: 0.5
+    iou_threshold: 0.5
+    semantic_segmentation_classes_as_objects:  [2, 3, 4, 5, 6, 10, 11, 12, 13, 14, 15, 16, 18, 24, 25, 26]
+    semantic_segmentation_classes_as_drivable:  [8, 9] # ground = 20, terrain = 28
+    #self.semantic_segmentation_classes_as_background = [0, 1, 7, 8, 9, 10, 17, 19, 20, 21, 22, 23, 27, 28]
+
