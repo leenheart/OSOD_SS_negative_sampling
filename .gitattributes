@@ -1,0 +1,4 @@
+models/train_faster_rcnn_bdd100k_semantic_baseline_semantic_epoch_4_10000_imgs filter=lfs diff=lfs merge=lfs -text
+models/train_faster_rcnn_bdd100k_semantic_3_rpn_heads_pos_epoch_4_10000_imgs filter=lfs diff=lfs merge=lfs -text
+models/train_faster_rcnn_bdd100k_semantic_3_rpn_heads_neg_epoch_4_10000_imgs filter=lfs diff=lfs merge=lfs -text
+models/train_faster_rcnn_bdd100k_semantic_3_rpn_heads_pure_neg_fixed_epoch_4_10000_imgs filter=lfs diff=lfs merge=lfs -text
