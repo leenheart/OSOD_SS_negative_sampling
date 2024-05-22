@@ -1,0 +1,201 @@
+debug: false
+test_on_train: true
+test_on_val: true
+test_on_test: false
+max_epochs: 10
+combine_classes: false
+show_image: true
+accumulate_gradient_nb_batch: 16
+precision_float: 16-mixed
+check_val_every_n_epoch: 1
+early_stopping: false
+early_stopping_monitor: val_coverage
+is_log: false
+sort_prediction:
+  threshold_upper_score: 0.5
+  threshold_under_score_minimum: 0.2
+  classes_as_known: []
+  keep_low_known_classes_as_unknown: false
+  remove_under_oro_score: false
+  oro_score_threshold: 0.5
+  nms_unknown_inside_known: true
+  nms_iou_threshold: 0.5
+  alpha_bce: 1
+  alpha_iou: 1
+  alpha_centerness: 1
+logger:
+  log_every_n_steps: 1
+  wandb_offline: false
+  wandb_on: true
+  project_name: OpenWorldObjectDetection
+dataloader:
+  batch_size: 2
+  num_workers: ${pc_config.dataloader.num_workers}
+  shuffle_in_training: true
+model:
+  load: false
+  to_load: ''
+  load_path: ${pc_config.model_save_path}model_archives/
+  save_path: ${pc_config.model_save_path}model_saves/
+  save_predictions_path: /model_saves/prediction_saves/bdd100k
+  save_predictions: false
+  save_targets: false
+  is_save_anchors: false
+  collate_fn: list
+  optimizer: SGD
+  scheduler: ''
+  scheduler_patience: 1
+  lr_scheduler_interval: epoch
+  lr_scheduler_frequency: 1
+  learning_rate: 0.001
+  momentum: 0.9
+  weight_decay: 0.0001
+  class_loss_reduction: sum
+  class_loss_factor: 1
+  class_metric: false
+  log_heatmap: false
+  log_fcos_inside: false
+  calcul_metric_train_each_nb_batch: 3
+  save_each_epoch: 1
+  pretrained: true
+  enable_unknown: false
+  enable_semantics_classes: false
+  enable_semantics_centerness: false
+  prediction_from_rpn: false
+  my_scoring_function_filter: false
+  object_score_threshold: 0.6
+  nms_iou_threshold: 0.5
+  threshold_score_centerness_unknown: 0.5
+  threshold_score_remove: 0.2
+  threshold_score_good: 0.5
+  validation_calculate_losses: true
+  test_calculate_losses: false
+  mode: ''
+  rpn:
+    multiple_rpn_heads: true
+    bbox_loss_function: smooth_l1_loss
+    bbox_reg_beta: 0.11111111
+    bce: true
+    bce_proposal: false
+    iou: true
+    iou_proposal: false
+    centerness: true
+    centerness_proposal: false
+    oro: false
+    bce_loss_function: null 
+    bce_reg_beta: null
+    bce_lr: 0.001
+    bce_proposal_lr: 0.001
+    bbox_deltas_lr: 0.001
+    iou_lr: 0.001
+    iou_proposal_lr: 0.001
+    iou_loss_function: adjust_smooth_l1_loss
+    iou_reg_beta: 0.1111111
+    centerness_lr: 0.001
+    centerness_proposal_lr: 0.1
+    centerness_loss_function: adjust_smooth_l1_loss
+    centerness_reg_beta: 0.111111
+    use_negative_sample: true
+    use_pure_negative_sample: true
+    positive_threshold_classif: 0.7
+    positive_threshold_reg: 0.3
+    nb_boxes_sampled_per_img: 256
+  name: faster_rcnn
+  only_rpn: false
+  freeze_backbone: false
+  ai_iou: false
+  ai_oro: false
+  perfect_oro: false
+  keep_background: false
+  filter_with_oro: false
+  open_low_known_classes_as_unknown: false
+  training:
+    freeze_classifier: false
+  classes_names_pred:
+  - person
+  - cyclist
+  - car
+  - truck
+  - bus
+  - train
+  - motorcycle
+  - bicycle
+  - traffic light
+  - traffic sign
+pc_config:
+  dataset_path: /data/
+  model_save_path: /model_saves/
+  max_epochs: 100
+  dataloader:
+    batch_size: 4
+    num_workers: 20
+dataset:
+  image_folder_name: images
+  annotation_file_name: targets.json
+  max_size: None
+  with_predictions: false
+  name: bdd100k
+  train_path: ${pc_config.dataset_path}bdd100k/train/
+  val_path: ${pc_config.dataset_path}bdd100k/val/
+  test_path: ${pc_config.dataset_path}bdd100k/test/
+  semantics: true
+  train_max_size: 1000000
+  val_max_size: 100000
+  test_max_size: 0
+  image_width: 1280
+  image_height: 720
+  image_resize_width: 1280
+  image_resize_height: 720
+  classes_names:
+  - person
+  - cyclist
+  - car
+  - truck
+  - bus
+  - train
+  - motorcycle
+  - bicycle
+  - traffic light
+  - traffic sign
+metrics:
+  considering_known_classes: true
+  metrics_on_raw_predictions: true
+  metrics_on_proposals_predictions: true
+  calibration_nb_bins: 20
+  mAP: false
+  flags: true
+  precision: true
+  recall: true
+  coverage: true
+  f1_score: false
+  UDR: false
+  UDP: false
+  WI: false
+  A_OSE: false
+  scores:
+    color_contrast_ring_factor: 0.1
+    edge_density_inner_ring_factor: 0.2
+    threshold_score_minimum: 0.2
+    threshold_score: 0.5
+    iou_threshold: 0.5
+    semantic_segmentation_classes_as_objects:
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 18
+    - 24
+    - 25
+    - 26
+    semantic_segmentation_classes_as_drivable:
+    - 8
+    - 9
+cmd: train
